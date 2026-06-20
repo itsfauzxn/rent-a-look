@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+:root {
+  --color-black: #000000;
+  --color-dark: #333333;
+  --color-gray: #888888;
+  --color-light-gray: #F3F4F6;
+  --color-white: #FFFFFF;
+  --color-border: #E5E5E5;
+
+  --bg-primary: var(--color-white);
+  --text-primary: var(--color-black);
+  --text-secondary: var(--color-gray);
+  
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  color: var(--color-black);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* Responsive Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Product Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+@media (min-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border: none;
+  padding: 12px 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.btn-primary:hover { opacity: 0.8; }
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-black);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.btn-outline.active {
+  background: var(--color-black);
+  color: var(--color-white);
+  border-color: var(--color-black);
+}
+
+/* Navigation */
+.top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.desktop-nav { display: none; }
+.mobile-menu-btn { display: block; background: none; border: none; cursor: pointer; }
+
+@media (min-width: 768px) {
+  .desktop-nav {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
+  .mobile-menu-btn { display: none; }
+  .mobile-icons { display: none !important; }
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 0;
+  z-index: 100;
+}
+
+@media (min-width: 768px) {
+  .bottom-nav { display: none; }
+  .page-content { padding-bottom: 0 !important; }
+}
+
+/* Utils */
+.text-center { text-align: center; }
+.my-4 { margin-top: 24px; margin-bottom: 24px; }
+
+/* Open Fashion Typography Styles */
+.font-title { font-size: 18px; line-height: 40px; font-family: var(--font-serif); letter-spacing: 2px; text-transform: uppercase; }
+.font-subtitle-16 { font-size: 16px; line-height: 24px; font-family: var(--font-sans); }
+.font-subtitle-14 { font-size: 14px; line-height: 20px; font-family: var(--font-sans); }
+.font-body-l { font-size: 16px; line-height: 24px; font-family: var(--font-sans); }
+.font-body-m { font-size: 14px; line-height: 24px; font-family: var(--font-sans); }
+.font-body-s { font-size: 12px; line-height: 18px; font-family: var(--font-sans); }
+.font-price { font-size: 15px; line-height: 24px; font-family: var(--font-sans); color: var(--color-primary, #DD8560); }
+
+/* Elements */
+.shadow-box { box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05); }
